@@ -1,9 +1,6 @@
 package com.uplooking.xml;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.Serializable;
 import java.util.Date;
@@ -11,6 +8,7 @@ import java.util.Date;
 //@XmlType(propOrder = {"createTime", "age"})
 @XmlAccessorType(XmlAccessType.FIELD)//序列化字段
 @XmlRootElement(name = "tong_jian")
+@XmlType(name = "UserDTO11", propOrder = {"id", "username", "password", "age", "createTime"})//指定序列化的顺序
 public class UserDTO implements Serializable {
 
 
