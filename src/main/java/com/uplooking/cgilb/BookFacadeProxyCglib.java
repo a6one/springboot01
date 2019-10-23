@@ -8,7 +8,6 @@ import java.lang.reflect.Method;
 
 public class BookFacadeProxyCglib implements MethodInterceptor {
 
-
     @Override
     public Object intercept(Object o, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
         Object invoke = methodProxy.invokeSuper(o, args);
