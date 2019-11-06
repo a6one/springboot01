@@ -2,6 +2,8 @@ package com.uplooking.elasticsearch;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Maps;
+import org.elasticsearch.action.admin.indices.alias.Alias;
+import org.elasticsearch.action.admin.indices.create.CreateIndexRequestBuilder;
 import org.elasticsearch.action.delete.DeleteRequest;
 import org.elasticsearch.action.delete.DeleteResponse;
 import org.elasticsearch.action.get.GetResponse;
@@ -104,5 +106,11 @@ public class TransportClientTest {
 
         //删除索引
         client.admin().indices().prepareDelete(type);
+        /**
+         *ClusterAdminClient：操作集群信息
+         *IndicesAdminClient：操作索引信息
+         */
+        CreateIndexRequestBuilder createIndexRequestBuilder = client.admin().indices().prepareCreate("");
+        createIndexRequestBuilder.addAlias(new Alias("alias"));
     }
 }
