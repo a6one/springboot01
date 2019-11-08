@@ -1,9 +1,7 @@
 package com.uplooking.thread;
 
 
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.*;
 
 /**
  * 在等待/通知模式中，同一把锁很重要
@@ -20,6 +18,8 @@ public class LockDemo {
         public MyThread1(Lock lock, Condition condition) {
             this.lock = lock;
             this.condition = condition;
+            LockSupport.park(); //锁定当前线程
+            LockSupport.unpark(Thread.currentThread());//释放当前线程
         }
 
         @Override
@@ -63,6 +63,12 @@ public class LockDemo {
         myThead1.start();
         myThead1.setName("线程A");
 
+        /**ReentrantReadWriteLock**/
+        ReentrantReadWriteLock readWriteLock = new ReentrantReadWriteLock();
+        //获取读锁
+        ReentrantReadWriteLock.ReadLock readLock = readWriteLock.readLock();
+        //获取写🔐
+        ReentrantReadWriteLock.WriteLock writeLock = readWriteLock.writeLock();
 
     }
 }
