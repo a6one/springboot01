@@ -36,6 +36,8 @@ public class Springboot01Application {
 
 
     public void test(){
-        System.out.println("test");
+        if(true) {
+            System.out.println("test");
+        }
     }
 }
