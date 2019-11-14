@@ -33,6 +33,4 @@ public class Springboot01Application {
         SpringApplication application = new SpringApplication(Springboot01Application.class);
         application.run(args);
     }
-
-    //中阿凡达分撒啊单独发读法发分撒爱上幅度大安抚安抚发啊发发阿飞阿发爱的色放阿斯蒂芬撒
 }
