@@ -33,4 +33,8 @@ public class Springboot01Application {
         SpringApplication application = new SpringApplication(Springboot01Application.class);
         application.run(args);
     }
+
+    public  void test(){
+        System.out.println("中就是");
+    }
 }
