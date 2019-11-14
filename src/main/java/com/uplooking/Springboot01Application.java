@@ -34,7 +34,8 @@ public class Springboot01Application {
         application.run(args);
     }
 
-    public  void test(){
-        System.out.println("中就是");
+
+    public void test(){
+        System.out.println("test");
     }
 }
