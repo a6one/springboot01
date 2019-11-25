@@ -3,6 +3,7 @@ package com.uplooking.xml;
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 //@XmlType(propOrder = {"createTime", "age"})
@@ -26,6 +27,7 @@ public class UserDTO implements Serializable {
     @XmlElement(name = "create_time")
     private Date createTime;
 
+    private BigDecimal count;
     public UserDTO() {
     }
 
@@ -73,6 +75,14 @@ public class UserDTO implements Serializable {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public BigDecimal getCount() {
+        return count;
+    }
+
+    public void setCount(BigDecimal count) {
+        this.count = count;
     }
 
     @Override
