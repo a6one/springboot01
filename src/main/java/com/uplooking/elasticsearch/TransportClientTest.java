@@ -23,12 +23,12 @@ import java.util.Map;
 
 public class TransportClientTest {
 
-    private static String index = "elasticsearchIndex";//索引
-    private static String type = "elasticsearchType";//类型
+    private static String index = "province";//索引
+    private static String type = "city";//类型
 
     public static void main(String[] args) throws Exception {
         //设置集群名称
-        Settings settings = Settings.builder().put("cluster.name", "my-application").build();// 集群名
+        Settings settings = Settings.builder().put("cluster.name", "docker-cluster").build();// 集群名
         //创建client
         TransportClient client = new PreBuiltTransportClient(settings)
                 .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("127.0.0.1"), 9300));
