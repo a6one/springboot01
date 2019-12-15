@@ -22,6 +22,8 @@ public class UserDTO implements Serializable {
     @XmlElement(name = "age")
     private Integer age;
 
+    private Object source;
+
     //类型适配器
     @XmlJavaTypeAdapter(value = DateXmlAdapter.class)
     @XmlElement(name = "create_time")
@@ -35,6 +37,11 @@ public class UserDTO implements Serializable {
         this.id = id;
         this.username = username;
         this.password = password;
+    }
+
+    public UserDTO(Object source, String username) {
+        this.source = source;
+        this.username = username;
     }
 
     public Long getId() {
@@ -95,4 +102,5 @@ public class UserDTO implements Serializable {
                 ", createTime=" + createTime +
                 '}';
     }
+
 }
