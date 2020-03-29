@@ -33,7 +33,9 @@ public class TransportClientWithQuery {
 
     public static void main(String[] args) throws Exception {
         //设置集群名称
-        Settings settings = Settings.builder().put("cluster.name", "my-application").build();// 集群名
+        Settings settings = Settings.builder().put("cluster.name", "my-application")
+                .put("client.transport.sniff", true) //自动增加嗅探的功能，自动查找es集群
+                .build();// 集群名
         //创建client
         TransportClient client = new PreBuiltTransportClient(settings)
                 .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("127.0.0.1"), 9300));
@@ -83,6 +85,7 @@ public class TransportClientWithQuery {
         SearchResponse searchResponse4 = client.prepareSearch(index)
                 .setTypes(type)
                 .setQuery(QueryBuilders.termsQuery("content", "hadoop", "spark"))
+                .setPostFilter(QueryBuilders.rangeQuery("age").from("10").to("20"))
                 .get();
         SearchHits hits4 = searchResponse4.getHits();
         //5，字段匹配查询

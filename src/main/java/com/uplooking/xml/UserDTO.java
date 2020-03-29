@@ -9,7 +9,7 @@ import java.util.Date;
 //@XmlType(propOrder = {"createTime", "age"})
 @XmlAccessorType(XmlAccessType.FIELD)//序列化字段
 @XmlRootElement(name = "tong_jian")
-@XmlType(name = "UserDTO11", propOrder = {"id", "username", "password", "age", "createTime"})//指定序列化的顺序
+//@XmlType(name = "UserDTO", propOrder = {"id", "username", "password", "age", "createTime"})//指定序列化的顺序
 public class UserDTO implements Serializable {
 
 
@@ -30,6 +30,7 @@ public class UserDTO implements Serializable {
     private Date createTime;
 
     private BigDecimal count;
+
     public UserDTO() {
     }
 

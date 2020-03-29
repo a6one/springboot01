@@ -8,7 +8,7 @@ public class TestMain {
     public static void main(String[] args) {
 
         UserDTO userDTO = new UserDTO();
-        userDTO.setId(1L);
+        //userDTO.setId(1L);
         userDTO.setAge(12);
         userDTO.setUsername("张三");
         userDTO.setCreateTime(new Date());
