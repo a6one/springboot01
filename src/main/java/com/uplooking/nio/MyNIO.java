@@ -45,7 +45,7 @@ public class MyNIO {
         System.out.println(buffer.capacity());
 
         //转换为读取状态position=0 ，limit= str.length()
-        buffer.flip();
+        buffer.flip();//翻转
         System.out.println("---------flip--------");
         System.out.println(buffer.position());
         System.out.println(buffer.limit());

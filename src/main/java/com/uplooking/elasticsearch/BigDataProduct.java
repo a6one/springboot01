@@ -1,10 +1,16 @@
 package com.uplooking.elasticsearch;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 
+@Document(indexName = "", type = "product")
 public class BigDataProduct {
 
+    @Id
     private String name;
+    @Field(type = FieldType.Nested)
     private String content;
     private String version;
 
