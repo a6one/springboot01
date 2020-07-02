@@ -51,7 +51,7 @@ public class DbConfig {
     }
 
     @Bean("jdbcTemplate01")
-    @ConfigurationProperties(prefix = "spring.datasource")
+    //@ConfigurationProperties(prefix = "spring.datasource")
     public JdbcTemplate jdbcTemplate02(@Qualifier("dataSource02") DataSource dataSource) {
         JdbcTemplate jdbcTemplate = new JdbcTemplate();
         jdbcTemplate.setDataSource(dataSource);
