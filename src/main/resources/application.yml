@@ -36,3 +36,4 @@ security:
     name: root
     password: root
     role: ADMIN
+

@@ -30,21 +30,21 @@ public class ExchangerDemo {
                 }
             }
         });
-
-        threadPool.execute(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("女朋友进入超市");
-                try {
-                    String girlfriend = "化妆品";
-                    // 交换购买物品   到达同步点，等待或者交换（所有线程都到达）
-                    String u1 = exgr.exchange("girlfriend");
-                    System.out.println("女朋友到达服务台，交换购买物品");
-                    System.out.println("你购买的是：" + u1 + ",女朋友购买的是：" + girlfriend);
-                } catch (InterruptedException e) {
-                }
-            }
-        });
+//
+//        threadPool.execute(new Runnable() {
+//            @Override
+//            public void run() {
+//                System.out.println("女朋友进入超市");
+//                try {
+//                    String girlfriend = "化妆品";
+//                    // 交换购买物品   到达同步点，等待或者交换（所有线程都到达）
+//                    String u1 = exgr.exchange("girlfriend");
+//                    System.out.println("女朋友到达服务台，交换购买物品");
+//                    System.out.println("你购买的是：" + u1 + ",女朋友购买的是：" + girlfriend);
+//                } catch (InterruptedException e) {
+//                }
+//            }
+//        });
 
         threadPool.execute(new Runnable() {
             @Override

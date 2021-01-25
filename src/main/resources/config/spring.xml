@@ -7,4 +7,25 @@
         <property name="age" value="#{age}"/>
         <property name="birth " value="#{birth.suffer}"/>
     </bean>
+
+    <!--<bean id="person" class="com.abc.Person">-->
+        <!--<property name="age" value="30" />-->
+        <!--<property name="son">-->
+            <!--&lt;!&ndash; 使用嵌套Bean定义属性值 &ndash;&gt;-->
+            <!--<bean class="com.abc.service.Son">-->
+                <!--<property name="age" value="11" />-->
+            <!--</bean>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--<bean id="son2" class="com.abc.service.Son">-->
+        <!--&lt;!&ndash; age属性不是直接注入，而是将person中的son的age属性赋值给son2的age属性 &ndash;&gt;-->
+        <!--<property name="age">-->
+            <!--&lt;!&ndash; 注意这里使用的是PropertyPathFactoryBean &ndash;&gt;-->
+            <!--<bean id="person.son.age"-->
+                  <!--class="org.springframework.beans.factory.config.PropertyPathFactoryBean" />-->
+        <!--</property>-->
+    <!--</bean>-->
+
+
 </beans>
