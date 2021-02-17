@@ -17,25 +17,29 @@ public class PhaserDemo {
      */
 
     public static void main(String[] args) {
-        Phaser phaser = new Phaser(){
+        Phaser phaser = new Phaser() {
             @Override
             protected boolean onAdvance(int phase, int registeredParties) {
+                System.out.println("当前阶段 phase:" + phase + "线程数量：" + registeredParties);
                 return false; //这里的true表示终止phaser false标识进入下一个阶段
             }
         };
+
         StudentTask[] studentTask = new StudentTask[5];
         for (int i = 0; i < studentTask.length; i++) {
             studentTask[i] = new StudentTask(phaser);
+            // 注册当前线程
             phaser.register();    //注册一次表示phaser维护的线程个数(仅仅告诉数量),看你调用的次数
         }
 
+        // 启动线程
         Thread[] threads = new Thread[studentTask.length];
         for (int i = 0; i < studentTask.length; i++) {
             threads[i] = new Thread(studentTask[i], "Student " + i);
             threads[i].start();
         }
 
-        //等待所有线程执行结束
+        // 等待所有线程执行结束
         for (int i = 0; i < studentTask.length; i++) {
             try {
                 threads[i].join();

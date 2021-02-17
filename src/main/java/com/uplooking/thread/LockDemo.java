@@ -12,10 +12,10 @@ import java.util.concurrent.locks.*;
 public class LockDemo {
 
     static class MyThread1 extends Thread {
-        private Lock lock; //synchronized
+        private java.util.concurrent.locks.Lock lock; //synchronized
         private Condition condition; //wait() | notify()
 
-        public MyThread1(Lock lock, Condition condition) {
+        public MyThread1(java.util.concurrent.locks.Lock lock, Condition condition) {
             this.lock = lock;
             this.condition = condition;
             LockSupport.park(); //锁定当前线程
@@ -38,10 +38,10 @@ public class LockDemo {
     }
 
     static class OtherThread1 extends Thread {
-        private Lock lock;
+        private java.util.concurrent.locks.Lock lock;
         private Condition condition;
 
-        public OtherThread1(Lock lock, Condition condition) {
+        public OtherThread1(java.util.concurrent.locks.Lock lock, Condition condition) {
             this.lock = lock;
             this.condition = condition;
         }
@@ -57,7 +57,7 @@ public class LockDemo {
     }
 
     public static void main(String[] args) {
-        Lock lock = new ReentrantLock();
+        ReentrantLock lock= new ReentrantLock();
         Condition condition = lock.newCondition();
         MyThread1 myThead1 = new MyThread1(lock, condition);
         myThead1.start();
