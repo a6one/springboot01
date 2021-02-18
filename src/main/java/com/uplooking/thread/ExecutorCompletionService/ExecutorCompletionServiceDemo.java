@@ -8,6 +8,5 @@ public class ExecutorCompletionServiceDemo {
 
     public static void main(String[] args) {
         CompletionService<String> service = new ExecutorCompletionService<>(Executors.newSingleThreadExecutor());
-        service.
     }
 }
