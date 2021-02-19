@@ -10,7 +10,7 @@ public class PipelineDemo {
      */
     public static class Context {
         public double B;
-        public double C;
+        double C;
         public double r;
         public String org;
     }
